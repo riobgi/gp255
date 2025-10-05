@@ -22,7 +22,7 @@ class Minesweeper:
         
 
     def setup_ui(self):
-        self.root.title("Minesweeper - number of mines " + str(self.mines))
+        self.root.title("Minesweeper")
         for r in range(self.rows):
             for c in range(self.cols):
                 btn = tk.Button(self.root, width=3, height=1)
@@ -150,4 +150,5 @@ if __name__ == "__main__":
     root.mainloop()
 
     # TODO: We may show players the remaining mines count as game info to make the game easier
+
     # TODO: Write Project Summary
