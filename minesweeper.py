@@ -151,6 +151,4 @@ if __name__ == "__main__":
 
     # TODO: We may show players the remaining mines count as game info to make the game easier
 
-    # TODO: We may want to give the option to restart the game
-
     # TODO: Write Project Summary
