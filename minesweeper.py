@@ -22,7 +22,7 @@ class Minesweeper:
         
 
     def setup_ui(self):
-        self.root.title("Minesweeper")
+        self.root.title("Minesweeper - number of mines " + str(self.mines))
         for r in range(self.rows):
             for c in range(self.cols):
                 btn = tk.Button(self.root, width=3, height=1)
