@@ -31,6 +31,9 @@ class Minesweeper:
                 
                 btn.bind("<Button-1>", lambda event, r=r, c=c: self.left_click(r, c))
                 btn.bind("<Button-3>", lambda event, r=r, c=c: self.right_click(r, c))
+                
+        restart_btn = tk.Button(self.root, text="Restart", command=self.restart_game)
+        restart_btn.grid(row=self.rows, column=0, columnspan=self.cols, sticky="we")
     
     # this function will be used to ensure that the first click is always safe
     def safe_first_click(self, safe_r, safe_c):
@@ -130,6 +133,15 @@ class Minesweeper:
         # Disable all buttons so game is ended
         for btn in self.buttons.values():
             btn.config(state=tk.DISABLED)
+            
+    
+    def restart_game(self):
+        self.game_over = False
+        self.first_click = True
+        self.mine_positions = set()
+        self.calculate_numbers()
+        for btn in self.buttons.values():
+            btn.config(state=tk.NORMAL, text="", bg="SystemButtonFace")
 
 
 if __name__ == "__main__":
