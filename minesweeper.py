@@ -21,7 +21,7 @@ class Minesweeper:
     def setup_ui(self):
         self.root.title("Minesweeper")
         
-        self.info_label = tk.Label(self.root, text=f"Mines: {self.mines}", font=("Arial", 12, "bold"))
+        self.info_label = tk.Label(self.root, text=f"Mines: {self.mines}; Revealed: {len(self.revealed)}", font=("Arial", 12, "bold"))
         self.info_label.grid(row=0, column=0, columnspan=self.cols, pady=5)
         for r in range(self.rows):
             for c in range(self.cols):
@@ -37,7 +37,7 @@ class Minesweeper:
     
     def update_info_label(self):
         remaining = self.mines - len(self.flags)
-        self.info_label.config(text=f"Mines: {remaining}")
+        self.info_label.config(text=f"Mines: {remaining}; Revealed: {len(self.revealed)}")
 
     def safe_first_click(self, safe_r, safe_c):
         all_positions = [(r, c) for r in range(self.rows) for c in range(self.cols)]
@@ -86,6 +86,8 @@ class Minesweeper:
         else:
             self.reveal_cell(r, c)
             self.check_win()
+
+        self.update_info_label()
     
     def right_click(self, r, c):
         if self.game_over:
